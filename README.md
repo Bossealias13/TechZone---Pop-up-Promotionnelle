@@ -2,8 +2,7 @@
 
 
 ![Aperçu](./screenshot.png)
-[voir le site]()
-
+[voir le site](https://bossealias13.github.io/TechZone---Pop-up-Promotionnelle/)
 Ce projet est un exercice pratique visant à maîtriser la création d'une fenêtre modale (pop-up) interactive sans framework, en utilisant uniquement du **JavaScript Vanilla moderne**.
 
 Le contexte est une landing page pour "TechZone", un site e-commerce fictif, proposant une réduction via une inscription par email.
