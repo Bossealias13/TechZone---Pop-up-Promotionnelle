@@ -1,0 +1,305 @@
+/* --- 1. Variables & Reset (Base) --- */
+:root {
+    --primary-color: #3b82f6;       /* Bleu principal */
+    --primary-hover: #2563eb;       /* Bleu au survol */
+    --text-dark: #1e293b;           /* Noir doux pour le texte */
+    --text-light: #64748b;          /* Gris pour les descriptions */
+    --bg-light: #f8fafc;            /* Fond de page très clair */
+    --white: #ffffff;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius-md: 12px;
+    --radius-pill: 50px;
+}
+
+/* Reset CSS pour annuler les marges par défaut des navigateurs */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* overlay de la fenetre modale */
+#modal-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.90);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#modal-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* bouton de fermeture de la fenetre modale */
+.button-close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+} 
+#close-modal {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* fenetre modale */
+.img-discount {
+  width: 140px;
+  height: auto;
+  aspect-ratio: 508/360;
+}
+#modal {
+  background-color: var(--white);
+  border-radius: 5px;
+  position: relative;
+  padding: 5px;
+  text-align: center;
+  max-width: 500px;
+}
+.modal-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 2rem;
+gap: 15px;
+border-radius: 8px;
+}
+/* label le cache sans qu il n occupe de place screen reader only ( sr-only ) */
+.sr-only {
+  position: absolute;      /* 1. Sort l'élément du flux (ne prend plus de place) */
+  width: 1px;              /* 2. Le rend minuscule (1 pixel) */
+  height: 1px;
+  padding: 0;
+  margin: -1px;            /* 3. Annule toute marge potentielle */
+  overflow: hidden;        /* 4. Cache ce qui dépasse du pixel */
+  clip: rect(0, 0, 0, 0);  /* 5. Le "rogne" complètement */
+  white-space: nowrap;     /* 6. Empêche le texte d'aller à la ligne */
+  border: 0;
+}
+/* texte de validation */
+.message-validation {
+  font-size: 1rem;
+  color: #198754; /* Vert pour succès */
+  font-weight: 700;
+  margin-top: 7px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+/* Fenetre modale form */
+.container-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.btn-discount {
+  background-color: var(--primary-color);
+  width: 67%;
+  color: var(--white);
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#email {
+  padding: 7px;
+  font-size: 1rem;
+  border: 1px solid var(--text-light);
+  border-radius: 4px;
+  width: 220px;
+  margin-block: 10px;
+}
+#email:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* --- 2. Header & Navigation --- */
+.main-header {
+    background-color: var(--white);
+    padding: 1rem 5%; /* % pour être responsive */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    position: sticky; /* Le menu reste en haut au scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Bouton Panier */
+.cart-btn {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+}
+
+.cart-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white); /* Force la couleur blanche au survol */
+}
+
+/* --- 3. Layout Principal --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-light);
+}
+
+/* --- 4. Grille de Produits (Grid) --- */
+.products-grid {
+    display: grid;
+    /* Technique magique pour le responsive sans media queries complexes : */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* --- 5. Composant Carte (Card) --- */
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden; /* Important pour que l'image respecte les coins arrondis */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Pour aligner le contenu verticalement */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow);
+}
+
+/* Zone Image */
+.card-header {
+    width: 100%;
+    /* Ratio 4/3 force une forme rectangulaire identique pour toutes les cartes */
+    aspect-ratio: 4 / 3; 
+    background-color: #eee; /* Fond gris pendant le chargement */
+    position: relative;
+}
+
+.card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre l'image intelligemment sans la déformer */
+    object-position: center;
+    display: block; /* Supprime l'espace vide sous les images inline */
+}
+
+/* Zone Contenu */
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1; /* Remplit l'espace restant */
+}
+
+.card-body h2 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+button {
+    margin-top: auto; /* Pousse le bouton tout en bas de la carte */
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- 6. Footer --- */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+    margin-top: 4rem;
+    border-top: 1px solid #eee;
+}

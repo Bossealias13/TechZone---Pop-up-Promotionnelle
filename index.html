@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>TechZone - Ventes Flash</title>
+    <meta name="description" content="Vente flash de produits high-tech : drones, casques et montres connectées.">
+    <meta name="author" content="TechZone">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="TechZone - Ventes Flash">
+    <meta property="og:description" content="Profitez de nos offres exclusives sur la tech.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="./images/icone2_tz.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="./scripts.js" defer></script>
+    
+</head>
+<body>
+
+    <!-- ouverlay de la fenetre modale -->
+    <div id="modal-overlay">
+
+        <!-- fenetre modale -->
+        <div id="modal">
+            <!-- bouton de fermeture de la fenetre modale -->
+            <div class="button-close">
+              <button id="close-modal" aria-label="Fermer la fenêtre modale" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span>Fermée</span>
+              </button>
+            </div>
+
+            <div class="modal-content">
+
+                <div class="image-promotion">
+                    <img src="./images/img_promotion.jpg" alt="" class="img-discount">
+                </div>
+
+                <h2>Bienvenue chez TechZone !</h2>
+                <p>Ne partez pas les mains vides. Inscrivez-vous et recevez un code promo de -10% maintenant.</p>
+
+                <div class="container-form">
+                    <form id="signup-form" novalidate>
+                        <label for="email" class="sr-only" >Entrez Votre Email</label>
+                        <input type="email" id="email" placeholder="Entrez Votre Email" autocomplete="off" required>
+                        <button type="submit" class="btn-discount">S'inscrire</button>
+                    </form>
+
+                    <p class="message-validation"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">TechZone ⚡</div>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul>
+                <li><a href="#">Nouveautés</a></li>
+                <li><a href="#">Promos</a></li>
+                <li>
+                    <a href="#" class="cart-btn" aria-label="Voir le panier, 0 articles">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Panier (0)
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>Le futur est ici.</h1>
+            <p>Découvrez nos derniers gadgets à prix réduits.</p>
+        </section>
+
+        <section class="products-grid" aria-label="Produits en promotion">
+            
+            <article class="card">
+                <div class="card-header">
+                    <img src="./images/casque-rose.jpg" alt="Casque audio supra-auriculaire rose et violet design moderne">
+                </div>
+                <div class="card-body">
+                    <h2>Casque X-Pro</h2>
+                    <p class="price">199 €</p>
+                    <button type="button">Ajouter au panier</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <img src="./images/montre-noire-Z-30.jpg" alt="Montre connectée Z-30 noire avec écran carré sur fond sombre">
+                </div>
+                <div class="card-body">
+                    <h2>Montre Z-30</h2>
+                    <p class="price">249 €</p>
+                    <button type="button">Ajouter au panier</button>
+                </div>
+            </article>
+            
+            <article class="card">
+                <div class="card-header">
+                    <img src="./images/drone-D-air.jpg" alt="Drone noir D-Air en vol stationnaire en extérieur">
+                </div>
+                <div class="card-body">
+                    <h2>Drone Air</h2>
+                    <p class="price">599 €</p>
+                    <button type="button">Ajouter au panier</button>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 TechZone. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
